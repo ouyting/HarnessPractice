@@ -18,13 +18,16 @@ REQUIRED = (
     '.harness/skills/test.md',
     '.harness/skills/git.md',
     '.harness/skills/workflow.md',
+    '.harness/templates/jira-ticket-plan.md',
     '.harness/workflows/feature.md',
     '.harness/workflows/bugfix.md',
+    '.harness/workflows/jira-intake.md',
     '.harness/workflows/refactor.md',
     '.harness/workflows/mvp.md',
     '.harness/memory/STATUS.md',
     '.harness/memory/DECISIONS.md',
     '.harness/memory/MISTAKES.md',
+    'tools/jira-intake.py',
 )
 
 
@@ -43,9 +46,13 @@ def update_status(workflow: str) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description='Run the Harness V1 role loop.')
     parser.add_argument('--workflow', choices=('feature', 'bugfix', 'refactor'), default='feature')
+    parser.add_argument('--ticket', help='Optional Jira key already captured by local Jira Intake, e.g. PROJ-123.')
     parser.add_argument('--verify-only', action='store_true', help='Validate the Tester gate without changing memory.')
     args = parser.parse_args()
 
+    if args.ticket:
+        print(f'[Jira Intake] Local ticket reference: {args.ticket}. No Jira connection was used.')
+        print('[Jira Intake] Connect Jira MCP only to retrieve live fields or write results back.')
     print(f'[Planner] Workflow: {args.workflow}; acceptance criterion: required harness contract exists.')
     print('[Coder] V1 deterministic scaffold selected; no project implementation file is changed.')
     missing = verify_layout()
