@@ -34,3 +34,15 @@ mvn clean package
 python tools/run-workflow.py --workflow feature
 V1 的 Tester 目前验证 Harness 自身文件是否齐全。接入真实项目后，建议将 run-workflow.py 扩展为调用 tools/build.ps1 和 tools/test.ps1，让流程的 Tester gate 以项目实际构建与测试结果为准。
 一个实用的约定是：规则与工作流可以跨项目基本复用；STATUS.md、DECISIONS.md、MISTAKES.md 必须按项目独立维护；构建和测试脚本必须按项目技术栈定制。
+cd D:\1_opensource\HarnessPractice
+
+# 先根据 Jira ticket 信息创建本地计划；不会连接 Jira
+python .\tools\jira-intake.py `
+  --key PROJ-123 `
+  --type feature `
+  --summary "支持导出报告"
+
+# 补齐生成的 plans\proj-123-支持导出报告.md 中的验收条件、范围和测试命令
+
+# 启动 Harness 工作流
+python .\tools\run-workflow.py --workflow feature --ticket PROJ-123
