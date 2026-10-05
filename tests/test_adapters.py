@@ -31,7 +31,9 @@ class AdapterTests(unittest.TestCase):
         for task in tasks['tasks']:
             for name in re.findall(r'\$\{input:([^}]+)\}', json.dumps(task)):
                 self.assertIn(name, inputs)
-            self.assertTrue((root / task['args'][0]).is_file())
+            first_arg = task['args'][0]
+            script = first_arg['value'] if isinstance(first_arg, dict) else first_arg
+            self.assertTrue((root / script).is_file())
 
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()

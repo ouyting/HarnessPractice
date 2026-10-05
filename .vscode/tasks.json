@@ -3,144 +3,397 @@
   "tasks": [
     {
       "label": "Harness V2.1: Jira MCP Intake",
-      "type": "process",
-      "command": "${command:python.interpreterPath}",
+      "type": "shell",
+      "command": {
+        "value": "${command:python.interpreterPath}",
+        "quoting": "strong"
+      },
       "args": [
-        "tools/jira-intake.py",
-        "--key",
-        "${input:ticket}",
-        "--from-jira"
+        {
+          "value": "tools/jira-intake.py",
+          "quoting": "strong"
+        },
+        {
+          "value": "--key",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:ticket}",
+          "quoting": "strong"
+        },
+        {
+          "value": "--from-jira",
+          "quoting": "strong"
+        }
       ],
       "options": {
-        "cwd": "${workspaceFolder}"
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "${env:SystemRoot}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "args": [
+            "-NoLogo",
+            "-NoProfile",
+            "-Command"
+          ]
+        }
       },
       "problemMatcher": []
     },
     {
       "label": "Harness V2: Planner",
       "args": [
-        "tools/editor-workflow.py",
-        "--ticket",
-        "${input:ticket}",
-        "--stage",
-        "planner",
-        "--agent",
-        "${input:agent}"
+        {
+          "value": "tools/editor-workflow.py",
+          "quoting": "strong"
+        },
+        {
+          "value": "--ticket",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:ticket}",
+          "quoting": "strong"
+        },
+        {
+          "value": "--stage",
+          "quoting": "strong"
+        },
+        {
+          "value": "planner",
+          "quoting": "strong"
+        },
+        {
+          "value": "--agent",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:agent}",
+          "quoting": "strong"
+        }
       ],
-      "type": "process",
-      "command": "${command:python.interpreterPath}",
+      "type": "shell",
+      "command": {
+        "value": "${command:python.interpreterPath}",
+        "quoting": "strong"
+      },
       "options": {
-        "cwd": "${workspaceFolder}"
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "${env:SystemRoot}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "args": [
+            "-NoLogo",
+            "-NoProfile",
+            "-Command"
+          ]
+        }
       },
       "problemMatcher": []
     },
     {
       "label": "Harness V2: Coder",
       "args": [
-        "tools/editor-workflow.py",
-        "--ticket",
-        "${input:ticket}",
-        "--stage",
-        "coder",
-        "--agent",
-        "${input:agent}"
+        {
+          "value": "tools/editor-workflow.py",
+          "quoting": "strong"
+        },
+        {
+          "value": "--ticket",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:ticket}",
+          "quoting": "strong"
+        },
+        {
+          "value": "--stage",
+          "quoting": "strong"
+        },
+        {
+          "value": "coder",
+          "quoting": "strong"
+        },
+        {
+          "value": "--agent",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:agent}",
+          "quoting": "strong"
+        }
       ],
-      "type": "process",
-      "command": "${command:python.interpreterPath}",
+      "type": "shell",
+      "command": {
+        "value": "${command:python.interpreterPath}",
+        "quoting": "strong"
+      },
       "options": {
-        "cwd": "${workspaceFolder}"
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "${env:SystemRoot}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "args": [
+            "-NoLogo",
+            "-NoProfile",
+            "-Command"
+          ]
+        }
       },
       "problemMatcher": []
     },
     {
       "label": "Harness V2: Verify",
       "args": [
-        "tools/run-workflow.py",
-        "--ticket",
-        "${input:ticket}"
+        {
+          "value": "tools/run-workflow.py",
+          "quoting": "strong"
+        },
+        {
+          "value": "--ticket",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:ticket}",
+          "quoting": "strong"
+        }
       ],
-      "type": "process",
-      "command": "${command:python.interpreterPath}",
+      "type": "shell",
+      "command": {
+        "value": "${command:python.interpreterPath}",
+        "quoting": "strong"
+      },
       "options": {
-        "cwd": "${workspaceFolder}"
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "${env:SystemRoot}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "args": [
+            "-NoLogo",
+            "-NoProfile",
+            "-Command"
+          ]
+        }
       },
       "problemMatcher": []
     },
     {
       "label": "Harness V2: Repair",
       "args": [
-        "tools/editor-workflow.py",
-        "--ticket",
-        "${input:ticket}",
-        "--stage",
-        "repair",
-        "--agent",
-        "${input:agent}"
+        {
+          "value": "tools/editor-workflow.py",
+          "quoting": "strong"
+        },
+        {
+          "value": "--ticket",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:ticket}",
+          "quoting": "strong"
+        },
+        {
+          "value": "--stage",
+          "quoting": "strong"
+        },
+        {
+          "value": "repair",
+          "quoting": "strong"
+        },
+        {
+          "value": "--agent",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:agent}",
+          "quoting": "strong"
+        }
       ],
-      "type": "process",
-      "command": "${command:python.interpreterPath}",
+      "type": "shell",
+      "command": {
+        "value": "${command:python.interpreterPath}",
+        "quoting": "strong"
+      },
       "options": {
-        "cwd": "${workspaceFolder}"
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "${env:SystemRoot}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "args": [
+            "-NoLogo",
+            "-NoProfile",
+            "-Command"
+          ]
+        }
       },
       "problemMatcher": []
     },
     {
       "label": "Harness V2: Reviewer",
       "args": [
-        "tools/editor-workflow.py",
-        "--ticket",
-        "${input:ticket}",
-        "--stage",
-        "reviewer",
-        "--agent",
-        "${input:agent}"
+        {
+          "value": "tools/editor-workflow.py",
+          "quoting": "strong"
+        },
+        {
+          "value": "--ticket",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:ticket}",
+          "quoting": "strong"
+        },
+        {
+          "value": "--stage",
+          "quoting": "strong"
+        },
+        {
+          "value": "reviewer",
+          "quoting": "strong"
+        },
+        {
+          "value": "--agent",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:agent}",
+          "quoting": "strong"
+        }
       ],
-      "type": "process",
-      "command": "${command:python.interpreterPath}",
+      "type": "shell",
+      "command": {
+        "value": "${command:python.interpreterPath}",
+        "quoting": "strong"
+      },
       "options": {
-        "cwd": "${workspaceFolder}"
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "${env:SystemRoot}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "args": [
+            "-NoLogo",
+            "-NoProfile",
+            "-Command"
+          ]
+        }
       },
       "problemMatcher": []
     },
     {
       "label": "Harness V2: Approve reviewed changes",
       "args": [
-        "tools/editor-workflow.py",
-        "--ticket",
-        "${input:ticket}",
-        "--review",
-        "approve",
-        "--reviewer",
-        "${input:reviewer}",
-        "--notes",
-        "${input:notes}",
-        "--diff-checked",
-        "--criteria-checked"
+        {
+          "value": "tools/editor-workflow.py",
+          "quoting": "strong"
+        },
+        {
+          "value": "--ticket",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:ticket}",
+          "quoting": "strong"
+        },
+        {
+          "value": "--review",
+          "quoting": "strong"
+        },
+        {
+          "value": "approve",
+          "quoting": "strong"
+        },
+        {
+          "value": "--reviewer",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:reviewer}",
+          "quoting": "strong"
+        },
+        {
+          "value": "--notes",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:notes}",
+          "quoting": "strong"
+        },
+        {
+          "value": "--diff-checked",
+          "quoting": "strong"
+        },
+        {
+          "value": "--criteria-checked",
+          "quoting": "strong"
+        }
       ],
-      "type": "process",
-      "command": "${command:python.interpreterPath}",
+      "type": "shell",
+      "command": {
+        "value": "${command:python.interpreterPath}",
+        "quoting": "strong"
+      },
       "options": {
-        "cwd": "${workspaceFolder}"
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "${env:SystemRoot}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "args": [
+            "-NoLogo",
+            "-NoProfile",
+            "-Command"
+          ]
+        }
       },
       "problemMatcher": []
     },
     {
       "label": "Harness V2: Reject changes",
       "args": [
-        "tools/editor-workflow.py",
-        "--ticket",
-        "${input:ticket}",
-        "--review",
-        "reject",
-        "--reviewer",
-        "${input:reviewer}",
-        "--notes",
-        "${input:notes}"
+        {
+          "value": "tools/editor-workflow.py",
+          "quoting": "strong"
+        },
+        {
+          "value": "--ticket",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:ticket}",
+          "quoting": "strong"
+        },
+        {
+          "value": "--review",
+          "quoting": "strong"
+        },
+        {
+          "value": "reject",
+          "quoting": "strong"
+        },
+        {
+          "value": "--reviewer",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:reviewer}",
+          "quoting": "strong"
+        },
+        {
+          "value": "--notes",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:notes}",
+          "quoting": "strong"
+        }
       ],
-      "type": "process",
-      "command": "${command:python.interpreterPath}",
+      "type": "shell",
+      "command": {
+        "value": "${command:python.interpreterPath}",
+        "quoting": "strong"
+      },
       "options": {
-        "cwd": "${workspaceFolder}"
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "${env:SystemRoot}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+          "args": [
+            "-NoLogo",
+            "-NoProfile",
+            "-Command"
+          ]
+        }
       },
       "problemMatcher": []
     }
