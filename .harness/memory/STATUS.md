@@ -17,3 +17,12 @@
 - Scope: HarnessPractice only; HarnessDemo and uro-pro not updated in this iteration.
 - Extension-only revision: Python syntax and 33 regression checks; see HARN-21/latest.json for final verification evidence. Approval remains pending.
 - PowerShell wrappers: AST syntax checked; direct execution blocked by local execution policy. Use documented Python entry points.
+
+
+## Jira Intake extension-only migration
+
+- Intake now prepares a prompt for Codex/Claude existing MCP. No direct Jira requests, independent MCP config or automatic plan updates.
+- Existing plans preserved; extension must preview JSON/Markdown changes and obtain confirmation.
+- Earlier standalone MCP tests/config notes are historical. Local regression rerun required for this revised workflow.
+
+- Final extension-intake validation: HarnessPractice 31 tests / HarnessDemo 34 tests passed, source checks passed, and all pre-migration plan hashes matched. Current agent shell was denied writing Demo runtime prompts (WinError 5); prompt generation logic passed in temporary-directory tests. Use VS Code under your own account; sandbox write failure is not an MCP connection failure.

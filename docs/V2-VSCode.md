@@ -1,3 +1,7 @@
+# Current Jira Intake
+
+Jira Intake uses the selected VS Code extension's existing MCP. Run `jira-intake.py --key KEY --agent codex` or `--agent claude`, attach its prompt, review differences and confirm. No standalone MCP configuration. See V2.1-Adapters.md; any previous independent MCP instructions are retired.
+
 # Harness V2：VS Code 扩展协作入口
 
 本版本优先支持在 VS Code 中使用已登录的 Codex / Claude Code 扩展。扩展负责 AI 规划、开发和审查；Harness 生成阶段提示、执行验证并记录人工确认的审查。脚本不会接管扩展会话，不调用模型 API，也不需要在 Harness 中保存会员密码或 API key。CLI 自动适配器留待后续版本。

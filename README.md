@@ -1,3 +1,7 @@
+# Current Jira Intake: extension MCP handoff
+
+Run `python tools/jira-intake.py --key UP-1525 --agent codex` (or claude), attach the generated prompt to that VS Code extension, inspect proposed plan differences and confirm before updates. No independent MCP client, integrations.json or AI CLI required. See docs/V2.1-Adapters.md. Older intake instructions below are historical.
+
 把 Harness V1 当成每个项目根目录下的一套“协作约定 + 脚本入口”即可。它不要求项目使用 Python；Java、Node、.NET、Go 等项目都能加入。
 
 已升级 V1.1：请以 docs/V1.1.md 为当前使用指南。以下 V1 介绍保留为历史参考；结构化 ticket 计划、真实 build/test 命令和显式审查是新的完成条件。

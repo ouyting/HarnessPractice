@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Harness V2.1: Jira MCP Intake",
+      "label": "Harness V2.1: Jira Intake (Extension MCP)",
       "type": "shell",
       "command": {
         "value": "${command:python.interpreterPath}",
@@ -22,7 +22,11 @@
           "quoting": "strong"
         },
         {
-          "value": "--from-jira",
+          "value": "--agent",
+          "quoting": "strong"
+        },
+        {
+          "value": "${input:agent}",
           "quoting": "strong"
         }
       ],
