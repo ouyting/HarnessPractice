@@ -1,3 +1,6 @@
 /tools/__pycache__
 /tests/__pycache__
 /.harness/runs/HARN-11
+/.harness/runs/
+/.harness/integrations.json
+**/__pycache__/

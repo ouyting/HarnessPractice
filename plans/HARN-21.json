@@ -1,0 +1,16 @@
+{
+  "key": "HARN-21",
+  "type": "feature",
+  "summary": "Jira MCP and VS Code extension collaboration",
+  "description": "V2.1 revised by user request to extension-only AI collaboration. Remove AI CLI adapters; preserve opt-in Jira MCP, local verification and explicit review.",
+  "acceptance_criteria": [
+    "Offline intake remains compatible and never overwrites existing plans",
+    "Live intake imports exact-key Jira description into JSON and Markdown using configured MCP tools",
+    "No active AI CLI adapter, task or configuration remains",
+    "Planner, Coder, Repair and Reviewer generate extension handoffs without executing models",
+    "User runs actual configured checks and records explicit review against latest snapshot",
+    "Offline protocol/process tests pass and live connectivity limitations are documented"
+  ],
+  "scope": ["HarnessPractice adapters, configuration examples, tests and VS Code tasks"],
+  "implementation_steps": ["Inspect current gates and CLI documentation", "Implement opt-in adapters", "Run regression, build and PowerShell checks", "Record validation limitations"]
+}

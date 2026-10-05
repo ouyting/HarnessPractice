@@ -50,3 +50,8 @@ python .\tools\jira-intake.py `
 
 # 启动 Harness 工作流
 python .\tools\run-workflow.py --workflow feature --ticket PROJ-123
+# Current version: V2.1
+
+See `docs/V2.1-Adapters.md` for VS Code extension collaboration and opt-in Jira MCP retrieval. No AI CLI required.
+Existing V2 VS Code handoffs and V1.1 verification gates remain supported. Historical V1 notes below
+are not the current verification contract: a complete `plans/<KEY>.json`, actual build/test and explicit review are required.

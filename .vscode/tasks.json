@@ -2,6 +2,14 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Harness V2.1: Jira MCP Intake",
+      "type": "process",
+      "command": "${input:python}",
+      "args": ["tools/jira-intake.py", "--key", "${input:ticket}", "--from-jira"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
       "label": "Harness V2: Planner",
       "args": [
         "tools/editor-workflow.py",

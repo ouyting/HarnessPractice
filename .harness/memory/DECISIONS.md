@@ -7,3 +7,4 @@
 | 2026-09-30 | Make Jira Intake local-first | Ticket metadata becomes a versioned local plan; live Jira access and write-back remain opt-in through MCP. |
 
 | 2026-10-05 | V1.1 uses explicit plans, command evidence and snapshot-bound review | Remove unconditional role PASS; separate successful verification from completed review. |
+| 2026-10-05 | V2.1 uses VS Code extension collaboration only; remove AI CLI adapters | User requests existing extension accounts, manual handoffs and local verification. Jira MCP stays opt-in. |

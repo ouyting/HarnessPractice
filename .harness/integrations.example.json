@@ -1,0 +1,11 @@
+{
+  "jira_mcp": {
+    "transport": "http",
+    "url": "https://YOUR-AUTHENTICATED-MCP-ENDPOINT/mcp",
+    "token_env": "HARNESS_JIRA_MCP_TOKEN",
+    "timeout_seconds": 30,
+    "ticket_tool": "getJiraIssue",
+    "ticket_arguments": {"cloudId": "YOUR-CLOUD-ID", "issueIdOrKey": "{key}"},
+    "acceptance_fields": []
+  }
+}

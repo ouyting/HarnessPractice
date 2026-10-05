@@ -14,6 +14,8 @@ required += [".harness/workflows/" + name + ".md"
              for name in ("feature", "bugfix", "refactor", "jira-intake", "mvp")]
 required += [".harness/memory/" + name + ".md"
              for name in ("STATUS", "DECISIONS", "MISTAKES")]
+required += ["tools/mcp_client.py", "tools/jira_mcp.py", "tools/editor-workflow.py", ".vscode/tasks.json",
+             "tests/test_adapters.py", ".harness/integrations.example.json", "docs/V2.1-Adapters.md"]
 missing = [name for name in required if not (root / name).is_file()]
 if missing:
     raise SystemExit("Missing Harness files: " + ", ".join(missing))

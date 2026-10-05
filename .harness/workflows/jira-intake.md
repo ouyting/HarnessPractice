@@ -19,6 +19,9 @@ python tools/run-workflow.py --workflow feature --ticket PROJ-123
 
 ## Connection boundary
 
-This workflow does **not** read Jira itself. Ask the user to connect Jira MCP only if a live ticket must be retrieved, searched, transitioned, commented on, or otherwise updated. Treat Jira write-back as a separate, user-authorized action.
+Offline intake does **not** read Jira. V2.1 supports explicit live retrieval with
+`python tools/jira-intake.py --key PROJ-123 --from-jira` after configuring `.harness/integrations.json`.
+See `docs/V2.1-Adapters.md`; missing configuration/authentication prompts for connection.
+Live intake is read-only and refuses to overwrite existing local plans. Jira write-back is not implemented.
 
 V1.1: Intake also generates `plans/<KEY>.json`. Fill description, acceptance_criteria, scope and implementation_steps; bugs also need reproduction_steps and expected_behavior. Markdown alone cannot pass the readiness gate.

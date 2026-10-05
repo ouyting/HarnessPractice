@@ -33,3 +33,8 @@ python tools/editor-workflow.py --ticket PROJ-123 --review approve --reviewer "�
 V2 使用 V1.1 的验证配置格式，保留旧入口。Jira 仍可选，需要实时读取或回写时才提示连接。当前没有自动模型调用、自动 Jira 回写、自动提交/PR 或任务恢复器。AI 扩展的文件权限由扩展本身管理；提示里的约束不是操作系统沙箱。Planner、Coder、Reviewer 由用户在扩展中启动，结果必须通过 Harness 的证据关卡。
 
 V2 的扩展交接不依赖 CLI。将来若采用 Codex CLI 自动执行，可参考 [OpenAI 官方修复循环示例](https://developers.openai.com/cookbook/examples/codex/build_iterative_repair_loops_with_codex)，需单独检查 CLI 登录及执行权限，不能由“扩展已登录”推断。
+# V2.1 extension
+
+The extension handoff workflow in this document remains supported. For actual Jira MCP retrieval,
+the extension-only V2.1 workflow, and the new VS Code tasks, see `V2.1-Adapters.md`.
+AI CLI adapters have been removed. Submit generated prompts manually to your logged-in extension.
