@@ -1,6 +1,8 @@
 把 Harness V1 当成每个项目根目录下的一套“协作约定 + 脚本入口”即可。它不要求项目使用 Python；Java、Node、.NET、Go 等项目都能加入。
 
 已升级 V1.1：请以 docs/V1.1.md 为当前使用指南。以下 V1 介绍保留为历史参考；结构化 ticket 计划、真实 build/test 命令和显式审查是新的完成条件。
+
+V2 VS Code 扩展协作入口已加入，请阅读 docs/V2-VSCode.md，并从 Tasks: Run Task 选择 Harness V2 任务。V1.1 的验证和审查关卡继续适用。
 建议每个项目保留自己的 Harness 配置：
 你的项目/
 ├─ src/…

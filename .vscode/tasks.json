@@ -1,0 +1,167 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Harness V2: Planner",
+      "args": [
+        "tools/editor-workflow.py",
+        "--ticket",
+        "${input:ticket}",
+        "--stage",
+        "planner",
+        "--agent",
+        "${input:agent}"
+      ],
+      "type": "process",
+      "command": "${input:python}",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Harness V2: Coder",
+      "args": [
+        "tools/editor-workflow.py",
+        "--ticket",
+        "${input:ticket}",
+        "--stage",
+        "coder",
+        "--agent",
+        "${input:agent}"
+      ],
+      "type": "process",
+      "command": "${input:python}",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Harness V2: Verify",
+      "args": [
+        "tools/run-workflow.py",
+        "--ticket",
+        "${input:ticket}"
+      ],
+      "type": "process",
+      "command": "${input:python}",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Harness V2: Repair",
+      "args": [
+        "tools/editor-workflow.py",
+        "--ticket",
+        "${input:ticket}",
+        "--stage",
+        "repair",
+        "--agent",
+        "${input:agent}"
+      ],
+      "type": "process",
+      "command": "${input:python}",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Harness V2: Reviewer",
+      "args": [
+        "tools/editor-workflow.py",
+        "--ticket",
+        "${input:ticket}",
+        "--stage",
+        "reviewer",
+        "--agent",
+        "${input:agent}"
+      ],
+      "type": "process",
+      "command": "${input:python}",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Harness V2: Approve reviewed changes",
+      "args": [
+        "tools/editor-workflow.py",
+        "--ticket",
+        "${input:ticket}",
+        "--review",
+        "approve",
+        "--reviewer",
+        "${input:reviewer}",
+        "--notes",
+        "${input:notes}",
+        "--diff-checked",
+        "--criteria-checked"
+      ],
+      "type": "process",
+      "command": "${input:python}",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Harness V2: Reject changes",
+      "args": [
+        "tools/editor-workflow.py",
+        "--ticket",
+        "${input:ticket}",
+        "--review",
+        "reject",
+        "--reviewer",
+        "${input:reviewer}",
+        "--notes",
+        "${input:notes}"
+      ],
+      "type": "process",
+      "command": "${input:python}",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "ticket",
+      "type": "promptString",
+      "description": "Jira/local ticket key (plans/<KEY>.json)",
+      "default": "HARN-11"
+    },
+    {
+      "id": "python",
+      "type": "promptString",
+      "description": "Python executable; use installed full path if needed",
+      "default": "python"
+    },
+    {
+      "id": "agent",
+      "type": "pickString",
+      "description": "Extension receiving this handoff",
+      "options": [
+        "codex",
+        "claude"
+      ],
+      "default": "codex"
+    },
+    {
+      "id": "reviewer",
+      "type": "promptString",
+      "description": "Identity of person/agent whose review you record"
+    },
+    {
+      "id": "notes",
+      "type": "promptString",
+      "description": "Specific findings; approve only after checking diff and criteria"
+    }
+  ]
+}
