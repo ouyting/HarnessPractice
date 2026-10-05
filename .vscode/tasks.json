@@ -4,9 +4,16 @@
     {
       "label": "Harness V2.1: Jira MCP Intake",
       "type": "process",
-      "command": "${input:python}",
-      "args": ["tools/jira-intake.py", "--key", "${input:ticket}", "--from-jira"],
-      "options": {"cwd": "${workspaceFolder}"},
+      "command": "${command:python.interpreterPath}",
+      "args": [
+        "tools/jira-intake.py",
+        "--key",
+        "${input:ticket}",
+        "--from-jira"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
       "problemMatcher": []
     },
     {
@@ -21,7 +28,7 @@
         "${input:agent}"
       ],
       "type": "process",
-      "command": "${input:python}",
+      "command": "${command:python.interpreterPath}",
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -39,7 +46,7 @@
         "${input:agent}"
       ],
       "type": "process",
-      "command": "${input:python}",
+      "command": "${command:python.interpreterPath}",
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -53,7 +60,7 @@
         "${input:ticket}"
       ],
       "type": "process",
-      "command": "${input:python}",
+      "command": "${command:python.interpreterPath}",
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -71,7 +78,7 @@
         "${input:agent}"
       ],
       "type": "process",
-      "command": "${input:python}",
+      "command": "${command:python.interpreterPath}",
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -89,7 +96,7 @@
         "${input:agent}"
       ],
       "type": "process",
-      "command": "${input:python}",
+      "command": "${command:python.interpreterPath}",
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -111,7 +118,7 @@
         "--criteria-checked"
       ],
       "type": "process",
-      "command": "${input:python}",
+      "command": "${command:python.interpreterPath}",
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -131,7 +138,7 @@
         "${input:notes}"
       ],
       "type": "process",
-      "command": "${input:python}",
+      "command": "${command:python.interpreterPath}",
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -143,13 +150,7 @@
       "id": "ticket",
       "type": "promptString",
       "description": "Jira/local ticket key (plans/<KEY>.json)",
-      "default": "HARN-11"
-    },
-    {
-      "id": "python",
-      "type": "promptString",
-      "description": "Python executable; use installed full path if needed",
-      "default": "python"
+      "default": "DEMO-1"
     },
     {
       "id": "agent",
