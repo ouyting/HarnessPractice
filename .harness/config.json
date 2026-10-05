@@ -1,0 +1,11 @@
+{
+  "version": "1.1",
+  "build": {
+    "command": ["{python}", "tools/check-source.py"],
+    "timeout_seconds": 60
+  },
+  "test": {
+    "command": ["{python}", "-m", "unittest", "discover", "-s", "tests", "-v"],
+    "timeout_seconds": 120
+  }
+}

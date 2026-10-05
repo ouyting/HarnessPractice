@@ -1,9 +1,10 @@
 [CmdletBinding()]
-param(
-    [ValidateSet('feature', 'bugfix', 'refactor')]
-    [string]$Workflow = 'feature'
-)
-
+param([string]$Python = 'python')
 $ErrorActionPreference = 'Stop'
-& python (Join-Path $PSScriptRoot 'run-workflow.py') --workflow $Workflow --verify-only
-if ($LASTEXITCODE -ne 0) { throw 'Workflow test failed.' }
+$root = Split-Path -Parent $PSScriptRoot
+Push-Location $root
+try {
+    & $Python -m unittest discover -s tests -v
+    if ($LASTEXITCODE -ne 0) { throw 'Harness regression tests failed.' }
+}
+finally { Pop-Location }

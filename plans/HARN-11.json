@@ -1,0 +1,21 @@
+{
+  "key": "HARN-11",
+  "type": "feature",
+  "summary": "Harness V1.1 verification and explicit review",
+  "description": "Local maintenance task, not a Jira issue. Replace demonstration role passes with structured readiness checks, actual build/test commands and explicit review.",
+  "acceptance_criteria": [
+    "Incomplete ticket plans and workflow mismatches are rejected.",
+    "Build/test failure or timeout blocks completion; fixed checks can be rerun.",
+    "Passing checks only enters awaiting_review.",
+    "Approval requires reviewer notes, both checklist declarations and the latest unchanged snapshot.",
+    "Commands, outputs, timestamps and exit codes are saved per ticket and run."
+  ],
+  "scope": [
+    "HarnessPractice local workflow and project verification adapters"
+  ],
+  "implementation_steps": [
+    "Introduce structured plan and project command configuration.",
+    "Implement check execution and snapshot-bound review.",
+    "Add regression tests and migration instructions."
+  ]
+}

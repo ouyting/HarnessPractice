@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -32,14 +33,25 @@ def main() -> int:
 
     plans = ROOT / 'plans'
     plans.mkdir(exist_ok=True)
+    structured = plans / f'{args.key}.json'
     destination = plans / f'{args.key.lower()}-{safe_filename(args.summary)}.md'
-    if destination.exists():
+    if destination.exists() or structured.exists():
         print(f'Refusing to overwrite existing plan: {destination}', file=sys.stderr)
         return 1
 
     content = TEMPLATE.read_text(encoding='utf-8')
     content = content.replace('{{KEY}}', args.key).replace('{{TYPE}}', args.type).replace('{{SUMMARY}}', args.summary)
     destination.write_text(content, encoding='utf-8')
+    plan = {
+        'key': args.key, 'type': args.type, 'summary': args.summary,
+        'description': '', 'acceptance_criteria': [], 'scope': [],
+        'implementation_steps': [], 'reproduction_steps': [],
+        'expected_behavior': ''
+    }
+    with structured.open('x', encoding='utf-8') as stream:
+        json.dump(plan, stream, ensure_ascii=False, indent=2)
+        stream.write('\n')
+    print(f'Created structured plan: {structured.relative_to(ROOT)}')
     print(f'Created local plan: {destination.relative_to(ROOT)}')
     print('Next: fill in the plan, then run tools/run-workflow.py with --ticket ' + args.key)
     return 0

@@ -9,3 +9,5 @@ python tools/jira-intake.py --key PROJ-123 --type feature --summary "Short summa
 Then select the closest workflow in `.harness/workflows/` and run `python tools/run-workflow.py --workflow <name> --ticket PROJ-123`. A workflow moves through Planner → Coder → Tester → Reviewer and stops on a failed gate.
 
 This V1 script does not connect to Jira. When the ticket must be read live or its status/comment must be updated, prompt the user to connect Jira MCP first.
+
+V1.1: complete `plans/<KEY>.json` before verification. Passing build/test enters `awaiting_review`; explicit review bound to run_id and snapshot is required for `done`. See `docs/V1.1.md`.

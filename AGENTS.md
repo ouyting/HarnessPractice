@@ -11,9 +11,11 @@ This repository is a small, local-first agent harness. Work in short, verified l
 Use the entry point below to demonstrate or verify the V1 loop:
 
 ```powershell
-python tools/run-workflow.py
+python tools/run-workflow.py --ticket PROJ-123
 ```
 
 Never bypass the safety and forbidden rules. This MVP intentionally uses only Python's standard library and PowerShell.
 
 Jira is optional in V1. Use the local intake script to record ticket details; connect Jira MCP only when real-time ticket retrieval or a Jira write-back is required.
+
+V1.1 requires a complete plans/<KEY>.json and project build/test commands in .harness/config.json. Passing checks enters awaiting_review; only an explicit review tied to the latest verified snapshot enters done. See docs/V1.1.md. Never represent a printed role name as completed implementation or review.

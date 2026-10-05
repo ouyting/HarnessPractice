@@ -7,3 +7,5 @@
 4. **Reviewer:** inspect diff, rules compliance, and user-visible impact.
 
 Exit only when Tester and Reviewer pass; otherwise return the failure to Coder with evidence.
+
+V1.1 completion: build/test evidence must pass, then reviewer records notes with the latest run_id, --diff-checked and --criteria-checked. Only an unchanged verified snapshot can enter done.

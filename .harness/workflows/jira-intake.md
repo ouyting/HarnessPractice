@@ -20,3 +20,5 @@ python tools/run-workflow.py --workflow feature --ticket PROJ-123
 ## Connection boundary
 
 This workflow does **not** read Jira itself. Ask the user to connect Jira MCP only if a live ticket must be retrieved, searched, transitioned, commented on, or otherwise updated. Treat Jira write-back as a separate, user-authorized action.
+
+V1.1: Intake also generates `plans/<KEY>.json`. Fill description, acceptance_criteria, scope and implementation_steps; bugs also need reproduction_steps and expected_behavior. Markdown alone cannot pass the readiness gate.

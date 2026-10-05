@@ -7,3 +7,5 @@
 4. **Reviewer:** check cause, regression coverage, and scope.
 
 Stop if reproduction is unavailable; record the blocker instead of guessing.
+
+V1.1 requires structured reproduction_steps and expected_behavior in plans/<KEY>.json. Failed tests block delivery; fixes require a new verification run and review of its snapshot.
