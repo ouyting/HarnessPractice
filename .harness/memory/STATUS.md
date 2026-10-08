@@ -26,3 +26,12 @@
 - Earlier standalone MCP tests/config notes are historical. Local regression rerun required for this revised workflow.
 
 - Final extension-intake validation: HarnessPractice 31 tests / HarnessDemo 34 tests passed, source checks passed, and all pre-migration plan hashes matched. Current agent shell was denied writing Demo runtime prompts (WinError 5); prompt generation logic passed in temporary-directory tests. Use VS Code under your own account; sandbox write failure is not an MCP connection failure.
+
+## Jira and Confluence source collection (2026-10-08)
+
+- Scope: HarnessPractice only. Existing plans, HarnessDemo and uro-pro were not modified.
+- Intake handoffs now require Description, Purpose / Core Requirements, Design and associated Confluence bodies through existing extension MCP tools; no standalone connection added.
+- Templates record original content, provenance and incomplete-read status. Field IDs are resolved by site metadata; linked-page traversal is bounded and deduplicated. Plan writes still require preview and explicit confirmation.
+- Verification: Python source syntax and git diff whitespace checks passed; all 34 local regression tests passed, including source handoffs for both agents and offline no-overwrite coverage.
+- Initial sandbox test run could not write temporary fixtures (WinError 5); rerun outside the sandbox exposed one outdated JSON-template fixture, which was updated before the final passing run.
+- Live Jira/Confluence retrieval was not executed in this iteration. Generated handoffs are instructions, not an enforced MCP retrieval engine or proof of business acceptance. Human review remains pending.

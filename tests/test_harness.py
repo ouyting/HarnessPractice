@@ -129,6 +129,10 @@ class HarnessTests(unittest.TestCase):
         intake.ROOT = self.root
         intake.TEMPLATE = self.root / "template.md"
         intake.TEMPLATE.write_text("# {{KEY}}: {{SUMMARY}} ({{TYPE}})", encoding="utf-8")
+        structured_template = self.root / ".harness/templates/jira-ticket.json"
+        structured_template.parent.mkdir(parents=True, exist_ok=True)
+        structured_template.write_bytes((Path(__file__).resolve().parents[1] /
+                                         ".harness/templates/jira-ticket.json").read_bytes())
         from unittest.mock import patch
         with patch.object(sys, "argv", ["jira-intake", "--key", "DEMO-2", "--type",
                                        "feature", "--summary", "Test intake"]):

@@ -46,6 +46,46 @@ class IntakeTests(unittest.TestCase):
     def test_unique_prompts_do_not_overwrite(self):
         self.assertNotEqual(intake.prepare(self.root, 'DEMO-1'), intake.prepare(self.root, 'DEMO-1'))
 
+    def test_required_source_collection_for_both_agents(self):
+        for agent in ('codex', 'claude'):
+            prompt = intake.prepare(self.root, 'DEMO-1', agent)
+            text = prompt.read_text(encoding='utf-8')
+            for requirement in ('Purpose / Core Requirements', 'Description', 'Design',
+                                'Confluence', 'remote links', 'field metadata',
+                                'full page body', 'pagination', 'source_materials',
+                                'reference_discovery', 'missing_field', 'partial',
+                                'stop cycles', '10 distinct pages',
+                                'unsuccessful read must not replace known content',
+                                'If sources conflict', 'DO NOT WRITE, CREATE, RENAME OR DELETE'):
+                self.assertIn(requirement, text)
+            manifest = json.loads(prompt.with_name('manifest.json').read_text())
+            self.assertEqual(manifest['required_sources'], [
+                'Description', 'Purpose / Core Requirements', 'Design', 'referenced Confluence pages'])
+
+    def test_offline_source_template_and_no_overwrite(self):
+        templates = self.root / '.harness/templates'
+        templates.mkdir(parents=True)
+        (templates / 'jira-ticket.json').write_bytes(
+            (ROOT / '.harness/templates/jira-ticket.json').read_bytes())
+        with patch.object(intake, 'ROOT', self.root):
+            self.assertEqual(intake.create_offline('DEMO-1', 'feature', 'Example'), 0)
+            plan_path = self.root / 'plans/DEMO-1.json'
+            plan = json.loads(plan_path.read_text(encoding='utf-8'))
+            for name in ('description', 'purpose_core_requirements', 'design', 'reference_discovery'):
+                self.assertEqual(plan['source_materials'][name]['status'], 'not_retrieved')
+            self.assertEqual(plan['source_materials']['confluence'], [])
+            self.assertEqual(plan['planning_status'], 'needs_clarification')
+            before = {p.name: p.read_bytes() for p in (self.root / 'plans').iterdir()}
+            self.assertEqual(intake.create_offline('DEMO-1', 'feature', 'Other title'), 1)
+            self.assertEqual(before, {p.name: p.read_bytes() for p in (self.root / 'plans').iterdir()})
+
+    def test_markdown_source_sections(self):
+        text = (ROOT / '.harness/templates/jira-ticket-plan.md').read_text(encoding='utf-8')
+        for section in ('### Purpose / Core Requirements', '### Description',
+                        '### Design', '### Related Confluence content',
+                        '## Open questions and source conflicts'):
+            self.assertIn(section, text)
+
     def test_invalid_key_or_agent(self):
         for key, agent in [('../escape', 'codex'), ('DEMO-1', 'unknown')]:
             with self.assertRaises(ValueError):

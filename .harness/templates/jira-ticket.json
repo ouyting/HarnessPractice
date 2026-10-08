@@ -7,5 +7,29 @@
   "scope": [],
   "implementation_steps": [],
   "reproduction_steps": [],
-  "expected_behavior": ""
+  "expected_behavior": "",
+  "source_materials": {
+    "description": {
+      "status": "not_retrieved", "field_id": "description", "content": "",
+      "url": "", "updated_at": null, "retrieved_at": null,
+      "reason": "Offline placeholder; extension MCP retrieval required."
+    },
+    "purpose_core_requirements": {
+      "status": "not_retrieved", "field_id": null, "content": "",
+      "url": "", "updated_at": null, "retrieved_at": null,
+      "reason": "Resolve Purpose / Core Requirements field ID on the selected Jira site."
+    },
+    "design": {
+      "status": "not_retrieved", "field_id": null, "content": "",
+      "url": "", "updated_at": null, "retrieved_at": null,
+      "reason": "Resolve Design field ID on the selected Jira site."
+    },
+    "reference_discovery": {
+      "status": "not_retrieved",
+      "reason": "Inspect the three source fields and issue remote links before declaring no references."
+    },
+    "confluence": []
+  },
+  "planning_status": "needs_clarification",
+  "open_questions": []
 }

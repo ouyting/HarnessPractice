@@ -11,11 +11,52 @@
 
 ## Problem or request
 
-<!-- Copy or summarize the Jira description here. -->
+<!-- Source-derived summary only; keep originals separately below. -->
+
+## Source material (original text and provenance)
+
+### Purpose / Core Requirements
+
+- Read status: not_retrieved
+- Jira source URL / field ID / updated / retrieved:
+- Missing or incomplete reason:
+
+<!-- Preserve retrieved original text here, separately from the summary. -->
+
+### Description
+
+- Read status: not_retrieved
+- Jira source URL / field ID / updated / retrieved:
+- Missing or incomplete reason:
+
+<!-- Preserve retrieved original text here; also store in JSON description. -->
+
+### Design
+
+- Read status: not_retrieved
+- Jira source URL / field ID / updated / retrieved:
+- Missing or incomplete reason:
+
+<!-- Preserve retrieved original text here. Resolve the field ID, do not guess. -->
+
+### Related Confluence content
+
+- Reference discovery: not_retrieved (not equivalent to no linked pages)
+
+<!-- One subsection per deduplicated page: title, URL, site/page ID, version or
+updated time, retrieved time, read status, original body, and unread portions/reason.
+An empty confluence array must not imply successful retrieval. -->
+
+## Open questions and source conflicts
+
+<!-- Record missing/blocked/partial sources and conflicting requirements explicitly.
+Keep needs_clarification where required information is unresolved. -->
 
 ## Acceptance criteria
 
 - [ ]
+
+<!-- Trace each criterion to its Jira field or Confluence page. -->
 
 ## Scope
 
